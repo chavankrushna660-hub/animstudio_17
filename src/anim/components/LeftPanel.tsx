@@ -1271,58 +1271,68 @@ export default function LeftPanel({
                     <span className="text-[10px] font-black uppercase tracking-wider font-sans">Vector Bézier Pen</span>
                   </div>
                   <span className="text-[8px] px-1.5 py-0.5 rounded bg-cyan-500/10 text-cyan-300 font-mono font-bold uppercase border border-cyan-500/20">
-                    Precision Subselection
+                    Real-time Bending
                   </span>
                 </div>
 
                 <p className="text-[9px] text-neutral-300 leading-normal font-medium">
-                  Click to place <b>Anchor Points</b>. Drag to pull <b>Direction Tangents</b>. Click on the first anchor point to close the vector path!
+                  Click or drag to place <b>Anchor Points</b> and <b>Direction Tangents</b>. The stroke draws, blends, and bends in real time — no need to connect first and last point!
                 </p>
 
                 <div className="bg-neutral-900/80 p-2 rounded-xl border border-neutral-800 text-[9px] text-cyan-300 font-bold space-y-1">
-                  <div>• <b>Square Node</b>: Anchor Point vertex</div>
-                  <div>• <b>Round Ends</b>: Direction Handles (tangents)</div>
-                  <div>• <b>Subselection Mode</b>: Click any anchor to drag or convert</div>
+                  <div>• <b>Click & Drag:</b> Add anchor & pull handles to stretch/bend</div>
+                  <div>• <b>Real-time Stroke:</b> Stroke renders & blends live on canvas</div>
+                  <div>• <b>Edit Tangents:</b> Click square anchor or handle dots to reshape</div>
+                  <div>• <b>Erase Drawing:</b> Use Eraser tool or click Erase button below</div>
                 </div>
 
-                {/* Anchor Point Mode */}
-                <div className="space-y-1">
-                  <label className="text-[9px] text-neutral-400 font-bold uppercase">Anchor Type Mode</label>
-                  <div className="grid grid-cols-3 gap-1">
-                    {['Smooth', 'Corner', 'Symmetric'].map(mode => (
-                      <button
-                        key={mode}
-                        type="button"
-                        className="bg-neutral-900 hover:bg-neutral-800 text-neutral-200 text-[9px] font-bold py-1 px-1 rounded-lg border border-neutral-800 text-center uppercase cursor-pointer"
-                      >
-                        {mode}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Path Action Buttons */}
+                {/* Path Action & Erase Controls */}
                 <div className="space-y-1.5">
                   <button
                     type="button"
                     onClick={() => {
                       try {
-                        if (selectedObjectId && objects[selectedObjectId]) {
-                          const pts = objects[selectedObjectId].points;
-                          if (pts.length > 2) {
-                            updateObject(selectedObjectId, {
-                              points: [...pts, { ...pts[0] }]
-                            });
-                          }
-                        }
+                        window.dispatchEvent(new CustomEvent('anim:finish-pen-stroke'));
                       } catch (err) {
-                        console.error('Close path error:', err);
+                        console.error('Finish pen stroke error:', err);
                       }
                     }}
-                    disabled={!selectedObjectId}
-                    className="w-full bg-cyan-500 hover:bg-cyan-600 disabled:opacity-40 text-neutral-950 text-[9.5px] font-black py-1.5 rounded-lg uppercase tracking-wider transition-all cursor-pointer shadow-md text-center"
+                    className="w-full bg-cyan-500 hover:bg-cyan-400 text-neutral-950 text-[9.5px] font-black py-1.5 rounded-lg uppercase tracking-wider transition-all cursor-pointer shadow-md text-center flex items-center justify-center gap-1.5"
                   >
-                    Close Path (First to Last)
+                    <Sparkles className="w-3 h-3" />
+                    Finish / New Pen Stroke
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => {
+                      try {
+                        window.dispatchEvent(new CustomEvent('anim:erase-pen-drawing'));
+                        if (selectedObjectId && objects[selectedObjectId] && selectedObjectId.startsWith('obj_')) {
+                          deleteObject(selectedObjectId);
+                        }
+                      } catch (err) {
+                        console.error('Erase pen drawing error:', err);
+                      }
+                    }}
+                    className="w-full bg-rose-500/20 hover:bg-rose-500/30 text-rose-300 text-[9.5px] font-bold py-1.5 rounded-lg uppercase tracking-wider transition-all cursor-pointer border border-rose-500/40 text-center flex items-center justify-center gap-1.5"
+                  >
+                    <Trash2 className="w-3 h-3 text-rose-400" />
+                    Erase Pen Drawing
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => {
+                      try {
+                        window.dispatchEvent(new CustomEvent('anim:erase-selected-anchor'));
+                      } catch (err) {
+                        console.error('Erase selected anchor error:', err);
+                      }
+                    }}
+                    className="w-full bg-neutral-900 hover:bg-neutral-800 text-neutral-300 text-[9px] font-medium py-1.5 rounded-lg uppercase tracking-wider transition-all cursor-pointer border border-neutral-800 text-center"
+                  >
+                    Erase Selected Anchor Node
                   </button>
 
                   <button
@@ -1945,30 +1955,7 @@ export default function LeftPanel({
               </div>
             )}
 
-            {/* ✒️ Precision Vector Pen Studio */}
-            {activeTool === 'PEN' && (
-              <div className="border border-blue-500/40 bg-neutral-950/95 rounded-2xl p-3 space-y-3 shrink-0 shadow-xl animate-fade-in" id="pen-tool-panel">
-                <div className="flex items-center justify-between text-blue-400">
-                  <div className="flex items-center gap-1.5">
-                    <PenTool className="w-3.5 h-3.5" />
-                    <span className="text-[10px] font-black uppercase tracking-wider font-sans">Precision Pen Engine</span>
-                  </div>
-                  <span className="text-[8px] px-1.5 py-0.5 rounded bg-blue-500/10 text-blue-300 font-mono font-bold uppercase border border-blue-500/20">
-                    Bézier Nodes
-                  </span>
-                </div>
 
-                <p className="text-[9px] text-neutral-300 leading-normal font-medium">
-                  Click on canvas to plot precise anchor nodes. Click near the green start node or double-click to finalize path!
-                </p>
-
-                <div className="space-y-1.5 bg-neutral-900/60 p-2.5 rounded-xl border border-neutral-800 text-[9px] text-neutral-300 leading-relaxed">
-                  <div>• <b>Click:</b> Add Anchor Node</div>
-                  <div>• <b>Click on Start Node (Green):</b> Close Path</div>
-                  <div>• <b>Double-Click:</b> Finish Open Stroke</div>
-                </div>
-              </div>
-            )}
 
             {/* 🤖 Machine Learning Acceleration & Smart Shape Studio */}
             {mlSettings && setMlSettings && (
