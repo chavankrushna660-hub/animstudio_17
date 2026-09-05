@@ -1,0 +1,6 @@
+{
+  "name": "Animstudio",
+  "description": "Powerful 2D and 3D animation web app with vector rigging, bone animation, 3D stroke memory, liquify mesh deformer, smart transforms, and timeline keyframing.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
