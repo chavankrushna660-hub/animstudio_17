@@ -182,11 +182,12 @@ export default function MeshPuppetWrapPanel({
               <div>
                 <span className="text-[10px] text-neutral-400 block mb-1">Fill Color</span>
                 <div className="flex items-center gap-2">
-                  <input
-                    type="color"
-                    value={state.extrudeCustomColor}
-                    onChange={(e) => setState(prev => ({ ...prev, extrudeCustomColor: e.target.value }))}
-                    className="w-8 h-8 rounded border border-neutral-700 bg-transparent cursor-pointer"
+                  <CustomColorPicker
+                    compact
+                    popover
+                    triggerSize="w-8 h-8"
+                    color={state.extrudeCustomColor}
+                    onChange={(newCol) => setState(prev => ({ ...prev, extrudeCustomColor: newCol }))}
                   />
                   <span className="text-[10px] font-mono text-neutral-300 uppercase">{state.extrudeCustomColor}</span>
                 </div>
@@ -195,11 +196,12 @@ export default function MeshPuppetWrapPanel({
               <div>
                 <span className="text-[10px] text-neutral-400 block mb-1">Stroke Color</span>
                 <div className="flex items-center gap-2">
-                  <input
-                    type="color"
-                    value={state.extrudeStrokeColor}
-                    onChange={(e) => setState(prev => ({ ...prev, extrudeStrokeColor: e.target.value }))}
-                    className="w-8 h-8 rounded border border-neutral-700 bg-transparent cursor-pointer"
+                  <CustomColorPicker
+                    compact
+                    popover
+                    triggerSize="w-8 h-8"
+                    color={state.extrudeStrokeColor}
+                    onChange={(newCol) => setState(prev => ({ ...prev, extrudeStrokeColor: newCol }))}
                   />
                   <span className="text-[10px] font-mono text-neutral-300 uppercase">{state.extrudeStrokeColor}</span>
                 </div>

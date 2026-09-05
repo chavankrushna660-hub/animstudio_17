@@ -1092,17 +1092,18 @@ export default function LeftPanel({
                 <div className="space-y-1.5">
                   <div className="flex items-center justify-between text-[9px] text-neutral-400 font-bold uppercase">
                     <span>Stroke Color</span>
-                    <input
-                      type="color"
-                      value={brushSettings.strokeColor ?? '#000000'}
-                      onChange={(e) => {
+                    <CustomColorPicker
+                      compact
+                      popover
+                      triggerSize="w-6 h-6"
+                      color={brushSettings.strokeColor ?? '#000000'}
+                      onChange={(newCol) => {
                         try {
-                          setBrushSettings(prev => ({ ...prev, strokeColor: e.target.value }));
+                          setBrushSettings(prev => ({ ...prev, strokeColor: newCol }));
                         } catch (err) {
                           console.error('Stroke color error:', err);
                         }
                       }}
-                      className="w-5 h-5 rounded cursor-pointer border border-neutral-700 bg-transparent"
                     />
                   </div>
                   <div className="grid grid-cols-7 gap-1">
@@ -1921,17 +1922,18 @@ export default function LeftPanel({
                 <div className="space-y-1.5">
                   <span className="text-[8.5px] text-neutral-400 font-bold uppercase">Brush Ink Color</span>
                   <div className="flex items-center gap-2">
-                    <input
-                      type="color"
-                      value={brushSettings.strokeColor ?? '#000000'}
-                      onChange={(e) => {
+                    <CustomColorPicker
+                      compact
+                      popover
+                      triggerSize="w-8 h-8"
+                      color={brushSettings.strokeColor ?? '#000000'}
+                      onChange={(newCol) => {
                         try {
-                          setBrushSettings(prev => ({ ...prev, strokeColor: e.target.value }));
+                          setBrushSettings(prev => ({ ...prev, strokeColor: newCol }));
                         } catch (err) {
                           console.error('Brush color error:', err);
                         }
                       }}
-                      className="w-8 h-8 rounded-lg cursor-pointer bg-transparent border-0"
                     />
                     <div className="grid grid-cols-6 gap-1 flex-1">
                       {['#000000', '#ffffff', '#ef4444', '#f59e0b', '#10b981', '#3b82f6'].map(col => (
