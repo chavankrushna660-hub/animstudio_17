@@ -7,4 +7,8 @@ Allow: /
 User-agent: Googlebot-Image
 Allow: /
 
-Sitemap: /sitemap.xml
+User-agent: Googlebot-Favicon
+Allow: /
+
+Sitemap: https://animstudioo.vercel.app/sitemap.xml
+
