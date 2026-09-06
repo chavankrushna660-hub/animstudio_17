@@ -10,5 +10,5 @@ Allow: /
 User-agent: Googlebot-Favicon
 Allow: /
 
-Sitemap: https://animstudioo.vercel.app/sitemap.xml
+Sitemap: /sitemap.xml
 
