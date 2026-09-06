@@ -1,6 +1,6 @@
 {
   "name": "Animstudio",
-  "description": "Powerful 2D and 3D animation web app with vector rigging, bone animation, 3D stroke memory, liquify mesh deformer, smart transforms, and timeline keyframing.",
+  "description": "Animstudio is a free browser-based 2D and 3D vector animation web app with bone rigging, 3D stroke memory, liquify mesh deformer, keyframe timeline, and export.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

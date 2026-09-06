@@ -3,18 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>Animstudio – Powerful 2D Animation Web App</title>
+    <title>Animstudio – 2D & 3D Vector Animation Studio | Free Web App</title>
 
     <!-- SEO & Metadata -->
     <meta name="application-name" content="Animstudio" />
     <meta name="apple-mobile-web-app-title" content="Animstudio" />
     <meta
       name="description"
-      content="Animstudio is a powerful browser-based 2D and 3D animation web app featuring vector rigging, bone animation, 3D stroke memory, liquify mesh deformer, smart transforms, keyframing timeline, and multi-format export."
+      content="Animstudio is a free web-based 2D & 3D vector animation studio. Create animations with bone rigging, mesh deformer, 3D stroke memory, and multi-format export."
     />
     <meta
       name="keywords"
-      content="animation app, web based animation app, 2D animation app, 3D animation, vector rigging, online animation maker, browser animation studio, bone animation, keyframe timeline, mesh deformer, 2D animator, 3D animator, web animator, PWA animation studio, Animstudio"
+      content="Animstudio, animstudio, Anim studio, anim studio, AnimaStudio, 2D animation web app, online 2D animation, vector animation software, browser animation studio, bone rigging tool, free animation maker, 2D animator, 3D vector animation, HTML5 animation tool, web animator, keyframe animation tool, mesh deformer animation"
     />
     <meta name="author" content="Animstudio" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
@@ -23,10 +23,9 @@
     <meta name="rating" content="General" />
     <link rel="canonical" href="https://animstudioo.vercel.app/" />
 
-    <!-- Google Search & Browser Favicon Matrix (Strictly Google Search Multiples 48x48, 96x96, 144x144) -->
-    <link rel="icon" href="/favicon.ico" sizes="any" />
-    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <!-- Google Search Engine Favicon Matrix (Strictly 48px Multiples for SERP & Browsers) -->
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="icon" href="/favicon.ico" sizes="48x48 32x32 16x16" />
     <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
     <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
     <link rel="icon" type="image/png" sizes="144x144" href="/favicon-144x144.png" />
@@ -34,16 +33,15 @@
     <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="image_src" href="/logo.png" />
 
     <!-- Apple Touch Icons & Mobile App Capable -->
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="mobile-web-app-capable" content="yes" />
-    <meta name="theme-color" content="#DC2626" />
+    <meta name="theme-color" content="#E5232A" />
 
     <!-- Web App Manifest & PWA -->
     <link rel="manifest" href="/manifest.json" />
@@ -52,12 +50,12 @@
     <meta property="og:site_name" content="Animstudio" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://animstudioo.vercel.app/" />
-    <meta property="og:title" content="Animstudio – Powerful 2D Animation Web App" />
+    <meta property="og:title" content="Animstudio – 2D & 3D Vector Animation Studio | Free Web App" />
     <meta
       property="og:description"
-      content="Powerful browser-based 2D and 3D animation web app featuring vector rigging, bone animation, 3D stroke memory, liquify mesh deformer, and keyframe timeline."
+      content="Animstudio is a free web-based 2D & 3D vector animation studio. Create animations with bone rigging, mesh deformer, 3D stroke memory, and multi-format export."
     />
-    <meta property="og:image" content="/og-image.png" />
+    <meta property="og:image" content="https://animstudioo.vercel.app/og-image.png" />
     <meta property="og:image:secure_url" content="https://animstudioo.vercel.app/og-image.png" />
     <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="1200" />
@@ -66,42 +64,35 @@
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Animstudio – Powerful 2D Animation Web App" />
+    <meta name="twitter:title" content="Animstudio – 2D & 3D Vector Animation Studio | Free Web App" />
     <meta
       name="twitter:description"
-      content="Powerful browser-based 2D and 3D animation web app featuring vector rigging, bone animation, 3D stroke memory, and keyframe timeline."
+      content="Animstudio is a free web-based 2D & 3D vector animation studio. Create animations with bone rigging, mesh deformer, 3D stroke memory, and multi-format export."
     />
-    <meta name="twitter:image" content="/og-image.png" />
+    <meta name="twitter:image" content="https://animstudioo.vercel.app/og-image.png" />
     <meta name="twitter:image:alt" content="Animstudio Logo" />
 
-    <!-- Schema.org JSON-LD for Google Search Rich Results & SERP Snippet Extraction -->
+    <!-- Schema.org JSON-LD for Google Search Rich Results, Site Name & Favicon Extraction -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@graph": [
           {
-            "@type": "WebApplication",
-            "@id": "https://animstudioo.vercel.app/#webapp",
+            "@type": "WebSite",
+            "@id": "https://animstudioo.vercel.app/#website",
+            "url": "https://animstudioo.vercel.app/",
             "name": "Animstudio",
-            "alternateName": ["Animstudio 2D", "Anim Studio"],
-            "url": "https://animstudioo.vercel.app",
-            "applicationCategory": "MultimediaApplication",
-            "operatingSystem": "All",
-            "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas.",
-            "description": "Animstudio is a powerful browser-based 2D and 3D animation web app with vector rigging, bone hierarchy animation, 3D stroke memory, liquify mesh deformer, smart transforms, keyframing, and export.",
-            "image": "https://animstudioo.vercel.app/icon-512.png",
-            "screenshot": "https://animstudioo.vercel.app/og-image.png",
-            "offers": {
-              "@type": "Offer",
-              "price": "0",
-              "priceCurrency": "USD"
+            "alternateName": ["AnimStudio", "AnimaStudio", "Anim studio", "Animstudio 2D"],
+            "description": "Animstudio is a free web-based 2D & 3D vector animation studio.",
+            "publisher": {
+              "@id": "https://animstudioo.vercel.app/#organization"
             }
           },
           {
             "@type": "Organization",
             "@id": "https://animstudioo.vercel.app/#organization",
             "name": "Animstudio",
-            "url": "https://animstudioo.vercel.app",
+            "url": "https://animstudioo.vercel.app/",
             "logo": {
               "@type": "ImageObject",
               "url": "https://animstudioo.vercel.app/icon-512.png",
@@ -110,13 +101,21 @@
             }
           },
           {
-            "@type": "WebSite",
-            "@id": "https://animstudioo.vercel.app/#website",
-            "url": "https://animstudioo.vercel.app",
+            "@type": "WebApplication",
+            "@id": "https://animstudioo.vercel.app/#webapp",
             "name": "Animstudio",
-            "description": "Animstudio – Powerful 2D Animation Web App",
-            "publisher": {
-              "@id": "https://animstudioo.vercel.app/#organization"
+            "alternateName": ["AnimStudio", "AnimaStudio", "Anim Studio"],
+            "url": "https://animstudioo.vercel.app/",
+            "applicationCategory": "MultimediaApplication",
+            "operatingSystem": "All",
+            "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas.",
+            "description": "Animstudio is a free browser-based 2D and 3D vector animation app with bone rigging, 3D stroke memory, liquify mesh deformer, keyframe timeline, and export.",
+            "image": "https://animstudioo.vercel.app/icon-512.png",
+            "screenshot": "https://animstudioo.vercel.app/og-image.png",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD"
             }
           }
         ]
